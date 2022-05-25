@@ -3,15 +3,12 @@
 namespace Frugone\ValidateDocumentUy;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Validator;
 use Frugone\ValidateDocumentUy\ValidateCI;
 use Frugone\ValidateDocumentUy\Rules\DocumentUyRule;
 
-use Illuminate\Support\Facades\Validator;
-
 class ValidateCIServiceProvider extends ServiceProvider
 {
-
-
     public function boot()
     {
         $this->loadTranslations();
@@ -25,7 +22,11 @@ class ValidateCIServiceProvider extends ServiceProvider
 
     private function registerValidationRules(): void
     {
-        Validator::extend( 'documentUy', DocumentUyRule::class . '@passes', trans('validate-document-uy::validation.documentUy'));
+        Validator::extend(
+            'documentUy',
+            DocumentUyRule::class . '@passes',
+            trans('validate-document-uy::validation.documentUy')
+        );
     }
 
     protected function registerBindings(): void
@@ -35,11 +36,11 @@ class ValidateCIServiceProvider extends ServiceProvider
 
     private function loadTranslations(): void
     {
-        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang/', 'validate-document-uy');
+        $this->loadTranslationsFrom(__DIR__ . '/../lang/', 'validate-document-uy');
 
         $this->publishes(
             [
-                __DIR__ . '/../resources/lang' => resource_path('lang'),
+                __DIR__ . '/../lang/' => resource_path('lang/vendor/validate-document-uy'),
             ],
             'validate-document-uy'
         );

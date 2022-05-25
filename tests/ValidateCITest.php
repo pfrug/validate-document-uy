@@ -2,18 +2,24 @@
 
 namespace Frugone\ValidateDocumentUy\Tests;
 
-use PHPUnit\Framework\TestCase;
-use Frugone\ValidateDocumentUy\ValidateCI;
+use Frugone\ValidateDocumentUy\Facades\ValidateCI;
 
 class ValidateCITest extends TestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->implementations['di-container'] = $this->app[ValidateCI::class];
+        $this->implementations[ValidateCI::class] = new ValidateCI();
+    }
 
     /**
      * @test
      */
     public function validDocumentTest()
     {
-        $this->assertTrue(ValidateCI::isValid('12345672'));
+        $this->assertTrue(ValidateCI::isValid(TestCase::VALID_DOCUMENT));
     }
 
     /**
@@ -21,7 +27,7 @@ class ValidateCITest extends TestCase
      */
     public function invalidDocumentTest()
     {
-        $this->assertFalse(ValidateCI::isValid('12345678'));
+        $this->assertFalse(ValidateCI::isValid(TestCase::INVALID_DOCUMENT));
     }
 
     /**
@@ -40,7 +46,8 @@ class ValidateCITest extends TestCase
     {
         for ($i = 0; $i < 10; $i++) {
             $document = ValidateCI::gerRandomDocument();
-            $this->assertTrue(ValidateCI::controlDigit($document) == substr($document, -1));
+            $number = substr($document, 0, -1);
+            $this->assertTrue(ValidateCI::controlDigit($number) == substr($document, -1));
         }
     }
 

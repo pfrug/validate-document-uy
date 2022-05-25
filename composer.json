@@ -10,7 +10,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Frugone\\ValidateDocumentUy\\Tests\\": "tests/"
         }
     },
     "authors": [

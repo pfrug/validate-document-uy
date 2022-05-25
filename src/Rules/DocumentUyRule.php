@@ -3,6 +3,7 @@
 namespace Frugone\ValidateDocumentUy\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use Frugone\ValidateDocumentUy\Facades\ValidateCI;
 
 class DocumentUyRule implements Rule
 {
@@ -35,6 +36,6 @@ class DocumentUyRule implements Rule
      */
     public function message()
     {
-        return 'El Documento ingresado no es válido';
+        return trans('validate-document-uy::validation.documentUy');
     }
 }

@@ -19,7 +19,7 @@ class ValidateCI
     public function isValid($document): bool
     {
         $document = $this->cleanDocument($document);
-        if (strlen($document) >  8) {
+        if (strlen($document) >  8 || strlen($document) <  7) {
             return false;
         }
 
@@ -37,7 +37,7 @@ class ValidateCI
     public function controlDigit($document)
     {
         $document = $this->cleanDocument($document);
-        if (strlen($document) >  7) {
+        if (strlen($document) >  7 || strlen($document) <  6) {
             throw new \Exception('Invalid document', 1);
         }
 

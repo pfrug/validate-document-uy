@@ -33,10 +33,25 @@ class ValidateCITest extends TestCase
     /**
      * @test
      */
+    public function emptyDocumentTest()
+    {
+        $this->assertFalse(ValidateCI::isValid(''));
+        $this->assertFalse(ValidateCI::isValid(null));
+    }
+
+    public function shortDocumentTest()
+    {
+        $this->assertFalse(ValidateCI::isValid('123'));
+    }
+
+    /**
+     * @test
+     */
     public function caractersTest()
     {
         $this->assertTrue(ValidateCI::isValid('1.234.567-2'));
         $this->assertTrue(ValidateCI::isValid(' __1.23 -- 4. test 567  . 2'));
+        $this->assertFalse(ValidateCI::isValid('Hello World!'));
     }
 
     /**

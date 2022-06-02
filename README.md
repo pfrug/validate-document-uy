@@ -44,6 +44,15 @@ $validator = Validator::make($data, [
 ]);
 ```
 
+## Configuration
+
+Optionally you can Publish the language files for translations
+
+```sh
+ php artisan vendor:publish --tag="validate-document-uy"
+```
+
+This command create file translations to: `/var/www/html/laravel_7_base/resources/lang/vendor/validate-document-uy/{en-es}/validation.php`
 
 ## License
 

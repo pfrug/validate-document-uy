@@ -52,7 +52,7 @@ Optionally you can Publish the language files for translations
  php artisan vendor:publish --tag="validate-document-uy"
 ```
 
-This command create file translations to: `/var/www/html/laravel_7_base/resources/lang/vendor/validate-document-uy/{en-es}/validation.php`
+This command create file translations to: `{project}resources/lang/vendor/validate-document-uy/{en-es}/validation.php`
 
 ## License
 

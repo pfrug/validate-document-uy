@@ -16,6 +16,7 @@ class ValidateCITest extends TestCase
 
     /**
      * @test
+     * @covers ::isValid
      */
     public function validDocumentTest()
     {
@@ -24,6 +25,7 @@ class ValidateCITest extends TestCase
 
     /**
      * @test
+     * @covers ::isValid
      */
     public function invalidDocumentTest()
     {
@@ -32,6 +34,7 @@ class ValidateCITest extends TestCase
 
     /**
      * @test
+     * @covers ::isValid
      */
     public function emptyDocumentTest()
     {
@@ -39,6 +42,9 @@ class ValidateCITest extends TestCase
         $this->assertFalse(ValidateCI::isValid(null));
     }
 
+    /**
+     * @covers ::isValid
+     */
     public function shortDocumentTest()
     {
         $this->assertFalse(ValidateCI::isValid('123'));
@@ -46,6 +52,7 @@ class ValidateCITest extends TestCase
 
     /**
      * @test
+     * @covers ::isValid
      */
     public function caractersTest()
     {
@@ -56,6 +63,7 @@ class ValidateCITest extends TestCase
 
     /**
      * @test
+     * @covers ::controlDigit
      */
     public function controlDigitTest()
     {
@@ -68,6 +76,7 @@ class ValidateCITest extends TestCase
 
     /**
      * @test
+     * @covers ::isValid
      */
     public function lessThanMillionTest()
     {
@@ -76,8 +85,9 @@ class ValidateCITest extends TestCase
 
     /**
      * @test
+     * @covers ::controlDigit
      */
-    public function randonDocumentTest()
+    public function gerRandomDocument()
     {
         for ($i = 0; $i < 10; $i++) {
             $document = ValidateCI::gerRandomDocument();

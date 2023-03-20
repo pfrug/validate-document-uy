@@ -51,7 +51,7 @@ class ValidateCI
      */
     public function gerRandomDocument(): string
     {
-        $number = (string) rand(10000, 999999);
+        $number = (string) rand(100000, 9999999);
         return $number . $this->getControlDigit($number);
     }
 

@@ -67,7 +67,7 @@ class ValidateCITest extends TestCase
      */
     public function controlDigitTest()
     {
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             $document = ValidateCI::gerRandomDocument();
             $number = substr($document, 0, -1);
             $this->assertTrue(ValidateCI::controlDigit($number) == substr($document, -1));
@@ -89,7 +89,7 @@ class ValidateCITest extends TestCase
      */
     public function gerRandomDocument()
     {
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             $document = ValidateCI::gerRandomDocument();
             $this->assertTrue(ValidateCI::isValid($document));
         }

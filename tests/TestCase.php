@@ -7,7 +7,6 @@ use Pfrug\ValidateDocumentUy\Facades\ValidateCI;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
-
     public const VALID_DOCUMENT = '12345672';
     public const INVALID_DOCUMENT = '12345678';
 

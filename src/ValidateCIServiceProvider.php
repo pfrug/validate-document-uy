@@ -1,11 +1,11 @@
 <?php
 
-namespace Frugone\ValidateDocumentUy;
+namespace Pfrug\ValidateDocumentUy;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
-use Frugone\ValidateDocumentUy\ValidateCI;
-use Frugone\ValidateDocumentUy\Rules\DocumentUyRule;
+use Pfrug\ValidateDocumentUy\ValidateCI;
+use Pfrug\ValidateDocumentUy\Rules\DocumentUyRule;
 
 class ValidateCIServiceProvider extends ServiceProvider
 {

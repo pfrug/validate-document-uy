@@ -4,14 +4,14 @@ Library to validate Uruguayan identity document
 
 ## Installation
 ``` sh
-composer require frugone/validate-document-uy
+composer require pfrug/validate-document-uy
 ```
 
 ```php
 // config/app.php
 'providers' => [
     ...
-    Frugone\ValidateDocumentUy\ValidateCIServiceProvider::class,
+    Pfrug\ValidateDocumentUy\ValidateCIServiceProvider::class,
 ];
 ```
 
@@ -21,7 +21,7 @@ And optionally register an alias for the facade.
 // config/app.php
 'aliases' => [
     ...
-    'ValidateCI' => Frugone\ValidateDocumentUy\Facades\ValidateCI::class,
+    'ValidateCI' => Pfrug\ValidateDocumentUy\Facades\ValidateCI::class,
 ];
 ```
 

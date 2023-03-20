@@ -1,9 +1,9 @@
 <?php
 
-namespace Frugone\ValidateDocumentUy\Rules;
+namespace Pfrug\ValidateDocumentUy\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
-use Frugone\ValidateDocumentUy\Facades\ValidateCI;
+use Pfrug\ValidateDocumentUy\Facades\ValidateCI;
 
 class DocumentUyRule implements Rule
 {

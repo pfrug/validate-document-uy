@@ -1,16 +1,16 @@
 {
-    "name": "frugone/validate-document-uy",
+    "name": "pfrug/validate-document-uy",
     "description": "Library to validate Uruguayan identity document",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Frugone\\ValidateDocumentUy\\": "src/"
+            "Pfrug\\ValidateDocumentUy\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Frugone\\ValidateDocumentUy\\Tests\\": "tests/"
+            "Pfrug\\ValidateDocumentUy\\Tests\\": "tests/"
         }
     },
     "authors": [

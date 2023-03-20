@@ -1,8 +1,8 @@
 <?php
 
-namespace Frugone\ValidateDocumentUy\Tests;
+namespace Pfrug\ValidateDocumentUy\Tests;
 
-use Frugone\ValidateDocumentUy\Facades\ValidateCI;
+use Pfrug\ValidateDocumentUy\Facades\ValidateCI;
 
 class FacadeTest extends TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Frugone\ValidateDocumentUy\Facades;
+namespace Pfrug\ValidateDocumentUy\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static string controlDigit(string $document)
  * @method static string gerRandomDocument()
  *
- * @see Frugone\ValidateDocumentUy\ValidateCI
+ * @see Pfrug\ValidateDocumentUy\ValidateCI
  */
 class ValidateCI extends Facade
 {

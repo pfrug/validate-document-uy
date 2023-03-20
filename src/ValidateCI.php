@@ -1,6 +1,6 @@
 <?php
 
-namespace Frugone\ValidateDocumentUy;
+namespace Pfrug\ValidateDocumentUy;
 
 /**
  *

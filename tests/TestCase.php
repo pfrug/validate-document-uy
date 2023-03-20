@@ -1,9 +1,9 @@
 <?php
 
-namespace Frugone\ValidateDocumentUy\Tests;
+namespace Pfrug\ValidateDocumentUy\Tests;
 
-use Frugone\ValidateDocumentUy\ValidateCIServiceProvider;
-use Frugone\ValidateDocumentUy\Facades\ValidateCI;
+use Pfrug\ValidateDocumentUy\ValidateCIServiceProvider;
+use Pfrug\ValidateDocumentUy\Facades\ValidateCI;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {

@@ -18,10 +18,17 @@ composer require pfrug/validate-document-uy
 And optionally register an alias for the facade.
 
 ```php
-// config/app.php
+
+// Laravel < 10: config/app.php
 'aliases' => [
     ...
     'ValidateCI' => Pfrug\ValidateDocumentUy\Facades\ValidateCI::class,
+];
+
+// Laravel >= 11 bootstrap/providers.php
+return [
+      ...
+      Pfrug\ValidateDocumentUy\Facades\ValidateCI::class,
 ];
 ```
 

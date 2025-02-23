@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'documentUy' => 'The :attribute is invalid.',
+    'document_uy' => 'The :attribute is invalid.',
 ];

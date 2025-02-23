@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Rules;
+namespace Pfrug\ValidateDocumentUy\Rules;
 
-use App\Facades\ValidateCI;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
+use Pfrug\ValidateDocumentUy\Facades\ValidateCI;
 
 class DocumentUyRule implements ValidationRule
 {
@@ -16,7 +16,7 @@ class DocumentUyRule implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         if (!ValidateCI::isValid($value)) {
-            $fail('The :attribute must be a valid Uruguayan identity document.');
+            $fail(__('validation.document_uy', ['attribute' => $attribute]));
         }
     }
 }

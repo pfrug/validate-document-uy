@@ -19,7 +19,7 @@ class ValidateCIServiceProvider extends ServiceProvider
     protected function registerBindings(): void
     {
         $this->app->singleton('validate_ci', function () {
-            return new \App\Services\ValidateCI();
+            return new \Pfrug\ValidateDocumentUy\ValidateCI();
         });
     }
 

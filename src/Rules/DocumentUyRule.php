@@ -16,7 +16,7 @@ class DocumentUyRule implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         if (!ValidateCI::isValid($value)) {
-            $fail(__('validation.document_uy', ['attribute' => $attribute]));
+            $fail(__('validate-document-uy::validation.document_uy', ['attribute' => $attribute]));
         }
     }
 }

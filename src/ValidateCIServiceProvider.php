@@ -3,16 +3,12 @@
 namespace Pfrug\ValidateDocumentUy;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Validator;
-use Pfrug\ValidateDocumentUy\ValidateCI;
-use Pfrug\ValidateDocumentUy\Rules\DocumentUyRule;
 
 class ValidateCIServiceProvider extends ServiceProvider
 {
     public function boot()
     {
         $this->loadTranslations();
-        $this->registerValidationRules();
     }
 
     public function register(): void
@@ -20,18 +16,11 @@ class ValidateCIServiceProvider extends ServiceProvider
         $this->registerBindings();
     }
 
-    private function registerValidationRules(): void
-    {
-        Validator::extend(
-            'documentUy',
-            DocumentUyRule::class . '@passes',
-            trans('validate-document-uy::validation.documentUy')
-        );
-    }
-
     protected function registerBindings(): void
     {
-        $this->app->singleton('validate_ci', ValidateCI::class);
+        $this->app->singleton('validate_ci', function () {
+            return new \App\Services\ValidateCI();
+        });
     }
 
     private function loadTranslations(): void

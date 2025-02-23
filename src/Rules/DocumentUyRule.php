@@ -1,41 +1,22 @@
 <?php
 
-namespace Pfrug\ValidateDocumentUy\Rules;
+namespace App\Rules;
 
-use Illuminate\Contracts\Validation\Rule;
-use Pfrug\ValidateDocumentUy\Facades\ValidateCI;
+use App\Facades\ValidateCI;
+use Closure;
+use Illuminate\Contracts\Validation\ValidationRule;
 
-class DocumentUyRule implements Rule
+class DocumentUyRule implements ValidationRule
 {
     /**
-     * Create a new rule instance.
+     * Run the validation rule.
      *
-     * @return void
+     * @param  \Closure(string, ?string=): \Illuminate\Translation\PotentiallyTranslatedString  $fail
      */
-    public function __construct()
+    public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        //
-    }
-
-    /**
-     * Determine if the validation rule passes.
-     *
-     * @param  string  $attribute
-     * @param  mixed  $value
-     * @return bool
-     */
-    public function passes($attribute, $value)
-    {
-        return ValidateCI::isValid($value);
-    }
-
-    /**
-     * Get the validation error message.
-     *
-     * @return string
-     */
-    public function message()
-    {
-        return trans('validate-document-uy::validation.documentUy');
+        if (!ValidateCI::isValid($value)) {
+            $fail('The :attribute must be a valid Uruguayan identity document.');
+        }
     }
 }

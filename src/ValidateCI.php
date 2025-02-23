@@ -44,7 +44,6 @@ class ValidateCI
         return $this->getControlDigit($document);
     }
 
-
     /**
      * Generate random document
      * @return string
@@ -87,7 +86,6 @@ class ValidateCI
                 'controlDigit' => substr($document, -1)
             ];
     }
-
 
     /**
      * Remove all non-numeric characters from a value

@@ -8,11 +8,18 @@ composer require pfrug/validate-document-uy
 ```
 
 ```php
-// config/app.php
+// Laravel < 10: config/app.php
 'providers' => [
     ...
     Pfrug\ValidateDocumentUy\ValidateCIServiceProvider::class,
 ];
+
+Laravel >= 11 bootstrap/providers.php
+return [
+    ...
+    Pfrug\ValidateDocumentUy\ValidateCIServiceProvider::class,
+];
+
 ```
 
 And optionally register an alias for the facade.
@@ -25,11 +32,6 @@ And optionally register an alias for the facade.
     'ValidateCI' => Pfrug\ValidateDocumentUy\Facades\ValidateCI::class,
 ];
 
-// Laravel >= 11 bootstrap/providers.php
-return [
-      ...
-      Pfrug\ValidateDocumentUy\Facades\ValidateCI::class,
-];
 ```
 
 ## Usage

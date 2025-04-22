@@ -3,12 +3,17 @@
 namespace Pfrug\ValidateDocumentUy;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Validator;
 
 class ValidateCIServiceProvider extends ServiceProvider
 {
     public function boot()
     {
         $this->loadTranslations();
+
+        Validator::extend('validate_ci', function ($attribute, $value, $parameters, $validator) {
+            return (new \Pfrug\ValidateDocumentUy\ValidateCI())->isValid($value);
+        }, __('validate-document-uy::validation.document_uy'));
     }
 
     public function register(): void

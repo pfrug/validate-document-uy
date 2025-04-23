@@ -1,68 +1,105 @@
-# ValidateUy
+# ValidateDocumentUy
 
-Library to validate Uruguayan identity document
+A Laravel 11+ package for validating Uruguayan identity documents (Cédula de Identidad).
+Supports validation via rule class or shorthand string rule (`validate_ci`), includes localization support and random generation for testing.
 
 ## Installation
-``` sh
+
+```bash
 composer require pfrug/validate-document-uy
 ```
 
-```php
-// Laravel < 10: config/app.php
-'providers' => [
-    ...
-    Pfrug\ValidateDocumentUy\ValidateCIServiceProvider::class,
-];
+### Register the service provider
 
-Laravel >= 11 bootstrap/providers.php
-return [
-    ...
-    Pfrug\ValidateDocumentUy\ValidateCIServiceProvider::class,
-];
-
-```
-
-And optionally register an alias for the facade.
+In `bootstrap/app.php`:
 
 ```php
+use Pfrug\ValidateDocumentUy\Providers\ValidateDocumentUyServiceProvider;
 
-// Laravel < 10: config/app.php
-'aliases' => [
-    ...
-    'ValidateCI' => Pfrug\ValidateDocumentUy\Facades\ValidateCI::class,
-];
-
+$app->register(ValidateDocumentUyServiceProvider::class);
 ```
+
+---
 
 ## Usage
 
-```php
-ValidateCI::isValid('30780892'); // true
-ValidateCI::isValid('3.078.089-2'); // true
-ValidateCI::isValid('30780890'); // false
-ValidateCI::controlDigit('3078089'); // 2
-ValidateCI::gerRandomDocument(); 
-```
+### Validation via string rule
 
-### Validation 
-The package provides custom rules to validate a Uruguayan document
 ```php
-$validator = Validator::make($data, [
-    'document1' => 'validate_ci',         // Using shorthand notation
-    'document2' => new DocumentUyRule(), // Using custom rule class    
+$request->validate([
+    'document' => 'required|validate_ci',
 ]);
 ```
 
-## Configuration
+### Validation via rule class
 
-Optionally you can Publish the language files for translations
+```php
+use Pfrug\ValidateDocumentUy\Rules\ValidUruguayanCiRule;
 
-```sh
- php artisan vendor:publish --tag="validate-document-uy"
+$request->validate([
+    'document' => ['required', new ValidUruguayanCiRule()],
+]);
 ```
 
-This command create file translations to: `{project}resources/lang/vendor/validate-document-uy/{en-es}/validation.php`
+### Using the facade
+
+```php
+use Pfrug\ValidateDocumentUy\Facades\ValidateDocumentUy;
+
+ValidateDocumentUy::isValid('12345672'); // true
+ValidateDocumentUy::controlDigit('1234567'); // returns 2
+ValidateDocumentUy::generateRandomDocument(); // returns a valid CI string
+```
+
+---
+
+## Translations
+
+Validation messages are available in English and Spanish.
+
+To publish the translation files:
+
+```bash
+php artisan vendor:publish --tag=validate-document-uy
+```
+
+The files will be located in:
+
+```
+resources/lang/vendor/validate-document-uy/en/validation.php
+resources/lang/vendor/validate-document-uy/es/validation.php
+```
+
+---
+
+## Tests
+
+```bash
+vendor/bin/phpunit
+```
+
+Includes unit and feature tests for all validation cases.
+
+---
+
+## Directory structure
+
+```
+src/
+├── Facades/
+│   └── ValidateDocumentUy.php
+├── Providers/
+│   └── ValidateDocumentUyServiceProvider.php
+├── Rules/
+│   └── ValidUruguayanCiRule.php
+├── Services/
+│   └── UruguayanCiValidator.php
+├── Support/
+│   └── ValidatesUruguayanCi.php
+```
+
+---
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+This package is open-sourced software licensed under the [MIT license](LICENSE.md).

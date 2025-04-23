@@ -2,39 +2,22 @@
 
 namespace Pfrug\ValidateDocumentUy\Tests;
 
-use Pfrug\ValidateDocumentUy\ValidateCIServiceProvider;
-use Pfrug\ValidateDocumentUy\Facades\ValidateCI;
+use Orchestra\Testbench\TestCase as BaseTestCase;
+use Pfrug\ValidateDocumentUy\Providers\ValidateDocumentUyServiceProvider;
+use Pfrug\ValidateDocumentUy\Facades\ValidateDocumentUy;
 
-class TestCase extends \Orchestra\Testbench\TestCase
+class TestCase extends BaseTestCase
 {
     public const VALID_DOCUMENT = '12345672';
     public const INVALID_DOCUMENT = '12345678';
 
-    /**
-     * Get package providers.
-     *
-     * @param  \Illuminate\Foundation\Application  $app
-     *
-     * @return array
-     */
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
-        return [
-            ValidateCIServiceProvider::class,
-        ];
+        return [ValidateDocumentUyServiceProvider::class];
     }
 
-    /**
-     * Override application aliases.
-     *
-     * @param  \Illuminate\Foundation\Application  $app
-     *
-     * @return array
-     */
-    protected function getPackageAliases($app)
+    protected function getPackageAliases($app): array
     {
-        return [
-            'ValidateCI', ValidateCI::class
-        ];
+        return ['ValidateDocumentUy' => ValidateDocumentUy::class];
     }
 }

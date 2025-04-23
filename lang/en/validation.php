@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'document_uy' => 'The :attribute is invalid.',
+    'validate_ci' => 'The :attribute is not a valid Uruguayan ID.',
 ];

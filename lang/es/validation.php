@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'document_uy' => 'El :attribute no es válido.',
+    'validate_ci' => 'El campo :attribute no es una cédula uruguaya válida.',
 ];

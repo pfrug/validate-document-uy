@@ -16,7 +16,10 @@ In `bootstrap/app.php`:
 ```php
 use Pfrug\ValidateDocumentUy\Providers\ValidateDocumentUyServiceProvider;
 
-$app->register(ValidateDocumentUyServiceProvider::class);
+->withProviders([
+    ValidateDocumentUyServiceProvider::class,
+])
+
 ```
 
 ---
